@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <title>Contact Us</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="img2">
+<!-- background-->
+    <div >
+        <div class="co"></div>
+
+    <!-- navbar -->
+<!-- NAVBAR-->
+<nav class="navbar navbar-expand-lg py-3 s" style=" background: white">
+  <div class="container">
+    <a href="#" class="navbar-brand">
+      <!-- Logo Image -->
+      <img src="{% static 'chv.png' %}" width="160"  height="58" alt="" class="d-inline-block align-middle mr-2">
+    </a>
+
+    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+
+    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto" >
+        <li class="nav-item active" ><a href="#" class="nav-link" style="color: black">Home <span class="sr-only">(current)</span></a></li>
+        <li class="nav-item" ><a href="#" class="nav-link" style="color: black">Offers</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" style="color: black">Contact Us</a></li>
+        <li class="nav-item"><a href="{{'accounts/register'}}" class="nav-link" style="color: black">sign up</a></li>
+        <li class="nav-item" ><a href="{{ 'accounts/login' }}" class="nav-link" style="color: black">login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- contact panel -->
+    <div class="container">
+    <div class="row">
+        <div class="card d-flex justify-content-center mx-auto my-3 p-5">
+            <h2> Do you have a question?
+            Contact Us</h2>
+            <div class="form-row">
+                <div class="form-group col-md-6 first"> <label for="inputFirstName">FIRST NAME <span>*</span></label> <input type="text" class="form-control" id="inputFirstName" name="firstname" required>
+                    <div id="fname_error" class="val_error"></div>
+                </div>
+                <div class="form-group col-md-6 first"> <label for="inputLastName">LAST NAME <span>*</span></label> <input type="text" class="form-control" id="inputLastName" name="lastname">
+                    <div id="lname_error" class="val_error"></div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6"> <label for="inputEmail">EMAIL <span>*</span></label> <input type="email" class="form-control" id="inputEmail" name="youremail">
+                    <div id="email_error" class="val_error"></div>
+                </div>
+                <div class="form-group col-md-6"> <label for="inputPhone">PHONE <span>*</span></label> <input type="text" class="form-control" id="inputPhone" name="yourphoneno">
+                    <div id="phone_error" class="val_error"></div>
+                </div>
+            </div>
+            <div class="form-group mt-0"> <label for="exampleFormControlTextarea1">MESSAGE <span>*</span></label> <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="yourmessage"></textarea>
+                <div id="message_error" class="val_error"></div>
+                <div class="form-button pt-4"> <button type="submit" class="btn btn-primary btn-block btn-lg" value="Register" name="register"><span style="color: white"; >SEND MESSAGE</span></button> </div>
+                </div>
+            <div class="dropdown-divider"></div>
+                <div class="font">
+                    <p> Contact Information </p>
+                    <p> Egypt</p>
+                    <p> +02 1111 2222</p>
+                    <p> chalet@gmail.com</p>
+                </div>
+
+
+  </div>
+            </div>
+
+    </div>
+</div></div>
+</body>
+</html>

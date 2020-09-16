@@ -3,7 +3,7 @@ from .models import chalets
 
 
 def home(request):
-    chalet_name = [chalets.objects.all()]
+    chalet_name = chalets.objects.all()
     return render(request, 'home.html', {'chalet_name': chalet_name})
 
 

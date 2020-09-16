@@ -48,30 +48,27 @@
 
 <div>
 <!-- grid -->
-    {% block content  %}
-        {% for n in chalet_name %}
-
+        {% for chalet in chalet %}
 <div class="container" >
   <div class="row" >
     <div class="col-6" style="border: 6px solid white; width: 600px; height: 300px; background: #e5f3ff">
       <div class="panel panel-yellow">
        <div class="showCard"> <img src="{% static 'dahab.jpg' %}" width="200px" height="150px" style="position: relative;">
-           <p style="font-size: 20px"> {{ n.name }} </p>
+           <p style="font-size: 20px"> {{ chalet.name }} </p>
            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-top: 25px;width: 450px;margin-left: 30px">
                      Book Now
               </button>
            <p style="position: absolute; top: 15px; right: 235px; font-size: 20px"> Description: </p>
        </div>
           <div>
-
           </div>
-
       </div>
     </div>
+
     <div class="col-6" style="border: 6px solid white; width: 600px; height: 300px; background: #e5f3ff">
        <div class="panel panel-yellow">
            <div class="showCard"> <img src="{% static '1107714-2cea2o.jpg' %}" width="200px" height="150px" style="position: relative;">
-           <p style="font-size: 20px"> </p>
+           <p style="font-size: 20px"> {{ chalet.name }} </p>
            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-top: 25px;width: 450px;margin-left: 30px">
                      Book Now
               </button>
@@ -87,7 +84,7 @@
     <div class="col-6" style="border: 6px solid white; width: 650px; height: 300px; background: #e5f3ff">
       <div class="panel panel-yellow"></div>
         <div class="showCard"> <img src="{% static 'sharm.jpg' %}" width="200px" height="150px" style="position: relative;">
-           <p style="font-size: 20px"> Porto sharm </p>
+           <p style="font-size: 20px"> {{ chalet.name }} </p>
            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-top: 25px;width: 450px;margin-left: 30px">
                      Book Now
               </button>
@@ -97,7 +94,7 @@
     <div class="col-6" style="border: 6px solid white; width: 650px; height: 300px; background: #e5f3ff">
        <div class="panel panel-yellow">
            <div class="showCard"> <img src="{% static 'marsa.jpg' %}" width="200px" height="150px"style="position: relative;">
-           <p style="font-size: 20px"> Sea view </p>
+           <p style="font-size: 20px"> {{ chalet.name }}</p>
            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-top: 25px;width: 450px;margin-left: 30px">
                      Book Now
               </button>
@@ -112,7 +109,7 @@
     <div class="col-6" style="border: 6px solid white; width: 650px; height: 300px; background: #e5f3ff">
       <div class="panel panel-yellow">
           <div class="showCard"> <img src="{% static 'ainsohkna.jpg' %}" width="200px" height="150px"style="position: relative;">
-           <p style="font-size: 20px"> Malibu Elsokhna </p>
+           <p style="font-size: 20px"> {{ chalet.name }} </p>
            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-top: 25px;width: 450px;margin-left: 30px">
                      Book Now
               </button>
@@ -123,7 +120,7 @@
     <div class="col-6" style="border: 6px solid white; width: 650px; height: 300px; background: #e5f3ff">
        <div class="panel panel-yellow">
            <div class="showCard"> <img src="{% static 'rassedr.jpg' %}" width="200px" height="150px"style="position: relative;">
-           <p style="font-size: 20px"> La Hacienda </p>
+           <p style="font-size: 20px"> {{ chalet.name }} </p>
            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-top: 25px;width: 450px;margin-left: 30px">
                      Book Now
               </button>
@@ -133,7 +130,8 @@
   </div>
   </div>
     </div>
-         {% endfor %}
-{% endblock %}
+
+  {% endfor %}
+
 </body>
 </html>

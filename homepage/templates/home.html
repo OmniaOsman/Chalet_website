@@ -48,12 +48,15 @@
 
 <div>
 <!-- grid -->
+    {% block content  %}
+        {% for n in chalet_name %}
+
 <div class="container" >
   <div class="row" >
     <div class="col-6" style="border: 6px solid white; width: 600px; height: 300px; background: #e5f3ff">
       <div class="panel panel-yellow">
        <div class="showCard"> <img src="{% static 'dahab.jpg' %}" width="200px" height="150px" style="position: relative;">
-           <p style="font-size: 20px">  kkkk </p>
+           <p style="font-size: 20px"> {{ n.name }} </p>
            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-top: 25px;width: 450px;margin-left: 30px">
                      Book Now
               </button>
@@ -68,7 +71,7 @@
     <div class="col-6" style="border: 6px solid white; width: 600px; height: 300px; background: #e5f3ff">
        <div class="panel panel-yellow">
            <div class="showCard"> <img src="{% static '1107714-2cea2o.jpg' %}" width="200px" height="150px" style="position: relative;">
-           <p style="font-size: 20px"> Shams Lodge </p>
+           <p style="font-size: 20px"> </p>
            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-top: 25px;width: 450px;margin-left: 30px">
                      Book Now
               </button>
@@ -129,9 +132,8 @@
     </div>
   </div>
   </div>
-
-
     </div>
-
+         {% endfor %}
+{% endblock %}
 </body>
 </html>

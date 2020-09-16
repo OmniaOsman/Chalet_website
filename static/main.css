@@ -128,10 +128,15 @@ h2 {
 
 
 
+.showCard{
+
+    width: 350px;
+    height: 360px;
+
+    background-size: cover;
 
 
 
-
-
-
-
+    padding-top: 10px;
+    margin-top: 10px;
+}

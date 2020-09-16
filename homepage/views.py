@@ -1,5 +1,3 @@
-from os import name
-
 from django.shortcuts import render
 from .models import chalets
 

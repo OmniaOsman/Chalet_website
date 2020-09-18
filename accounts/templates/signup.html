@@ -24,6 +24,7 @@
           <div class="card-body">
             <h5 class="card-title text-center">Register</h5>
             <form class="form-signin" action="register" method="POST">
+                 {% csrf_token %}
               <div class="form-label-group">
                 <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
                 <label for="inputUserame">Username</label>

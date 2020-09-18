@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import chalets
+from .models import chalet
 
 
 

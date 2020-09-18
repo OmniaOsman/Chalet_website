@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'chalet.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'database',
+        'NAME': 'data',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',

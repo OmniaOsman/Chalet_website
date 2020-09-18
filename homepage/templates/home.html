@@ -46,33 +46,46 @@
         </div>
     </div>
 
+
+
 <div>
 <!-- grid -->
-        {% for chalet in chalet %}
 <div class="container" >
   <div class="row" >
     <div class="col-6" style="border: 6px solid white; width: 600px; height: 300px; background: #e5f3ff">
       <div class="panel panel-yellow">
-       <div class="showCard"> <img src="{% static 'dahab.jpg' %}" width="200px" height="150px" style="position: relative;">
-           <p style="font-size: 20px"> {{ chalet.name }} </p>
-           <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-top: 25px;width: 450px;margin-left: 30px">
-                     Book Now
-              </button>
-           <p style="position: absolute; top: 15px; right: 235px; font-size: 20px"> Description: </p>
+       <div class="showCard">
+           <img src="{% static 'dahab.jpg' %}"width="200px" height="150px" style="position: relative;">
+           <p style="font-size: 20px;margin-bottom: 4px;"> Beit Theresa </p>
+           <p style="position: absolute; top: 15px;left: 220px "> <strong>Description:</strong>
+           <p style="position: absolute; top: 45px;left: 220px ">Beit Teresa is located in Dahab, 300 meters from Command and Dive Center - 500 meters from Eel Park - Entrance Point Entrance. There is Wi-Fi, bicycles, air conditioning,  and vacancies.
+            There is a private bathroom with a bidet and a hairdryer in each unit, along with additional toiletries.
+            Chalet facilities for barbecue.
+            </p>
+           <p style="font-size: 20px;margin-bottom: 5px;"> Dahab</p>
+           <a class="btn btn-primary" href="{{ 'book/' }}" role="button">Book Now</a>
        </div>
-          <div>
-          </div>
-      </div>
-    </div>
 
+      </div>
+
+    </div>
     <div class="col-6" style="border: 6px solid white; width: 600px; height: 300px; background: #e5f3ff">
        <div class="panel panel-yellow">
-           <div class="showCard"> <img src="{% static '1107714-2cea2o.jpg' %}" width="200px" height="150px" style="position: relative;">
-           <p style="font-size: 20px"> {{ chalet.name }} </p>
+           <div class="showCard">
+           <img src="{% static 'h.jpg' %}" width="200px" height="150px" style="position: relative;">
+           <p style="font-size: 20px;margin-bottom: 4px;"> Shams Lodge </p>
+           <p style="position: absolute; top: 15px;left: 220px "> <strong>Description:</strong>
+           <p style="position: absolute; top: 45px;left: 220px ">
+            Located less than 1 km from Sentido Palm Royale Soma Bay, a restaurant, an outdoor swimming pool, a fitness center and a bar. The lodge offers both free Wi-Fi and private parking.
+            The accommodation features a terrace, air conditioning and a private bathroom with a bathtub.
+            Continental and American breakfast options are available every morning at Shams Lodge.
+            </p>
+           <p style="font-size: 20px;margin-bottom: 5px;"> Hurghada</p>
+           <a class="btn btn-primary" href="{{ 'book/' }}" role="button">Book Now</a>
+           <p style="font-size: 20px">  </p>
            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-top: 25px;width: 450px;margin-left: 30px">
                      Book Now
               </button>
-               <p style="position: absolute; top: 15px; right: 235px; font-size: 20px"> Description: </p>
        </div>
        </div>
     </div>
@@ -84,7 +97,7 @@
     <div class="col-6" style="border: 6px solid white; width: 650px; height: 300px; background: #e5f3ff">
       <div class="panel panel-yellow"></div>
         <div class="showCard"> <img src="{% static 'sharm.jpg' %}" width="200px" height="150px" style="position: relative;">
-           <p style="font-size: 20px"> {{ chalet.name }} </p>
+           <p style="font-size: 20px">  </p>
            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-top: 25px;width: 450px;margin-left: 30px">
                      Book Now
               </button>
@@ -94,7 +107,7 @@
     <div class="col-6" style="border: 6px solid white; width: 650px; height: 300px; background: #e5f3ff">
        <div class="panel panel-yellow">
            <div class="showCard"> <img src="{% static 'marsa.jpg' %}" width="200px" height="150px"style="position: relative;">
-           <p style="font-size: 20px"> {{ chalet.name }}</p>
+           <p style="font-size: 20px"> </p>
            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-top: 25px;width: 450px;margin-left: 30px">
                      Book Now
               </button>
@@ -108,8 +121,8 @@
   <div class="row" >
     <div class="col-6" style="border: 6px solid white; width: 650px; height: 300px; background: #e5f3ff">
       <div class="panel panel-yellow">
-          <div class="showCard"> <img src="{% static 'ainsohkna.jpg' %}" width="200px" height="150px"style="position: relative;">
-           <p style="font-size: 20px"> {{ chalet.name }} </p>
+          <div class="showCard"> <img src="{% static 'ains.jpg' %}" width="200px" height="150px" style="position: relative;">
+           <p style="font-size: 20px">  </p>
            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-top: 25px;width: 450px;margin-left: 30px">
                      Book Now
               </button>
@@ -120,7 +133,7 @@
     <div class="col-6" style="border: 6px solid white; width: 650px; height: 300px; background: #e5f3ff">
        <div class="panel panel-yellow">
            <div class="showCard"> <img src="{% static 'rassedr.jpg' %}" width="200px" height="150px"style="position: relative;">
-           <p style="font-size: 20px"> {{ chalet.name }} </p>
+           <p style="font-size: 20px">  </p>
            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-top: 25px;width: 450px;margin-left: 30px">
                      Book Now
               </button>
@@ -131,7 +144,14 @@
   </div>
     </div>
 
-  {% endfor %}
+<!--
+{% for c in chalets %}
+<div style="margin-left: 110px">
+    <img src=" {{ c.image}} " width="200px" height="150px" style="position: relative; ">
+    <p> {{ c.name}} </p>
+</div>
+{% endfor %}
+-->
 
 </body>
 </html>

@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'custom.css' %}" type="text/css">
+
+    <script>
+        function finalCost(){
+            {% if chalets.name == 'Beit Theresa' %}
+                 var roomType = document.getElementById("room_type").value;
+                 var roomNum = document.getElementById("room_number").value;
+                 var personNum = document.getElementById("person_number").value;
+                 var childNum = document.getElementById("child_number").value;
+                 var resFacilities = document.getElementById("res_facilities").value;
+                 var total = (parseInt(roomType)*10) + ((roomNum)*2) + ((personNum)*3) + ((childNum)*2) + ((resFacilities)*5)
+            document.getElementById("result").innerHTML = total;
+            {% endif %}
+        }
+    </script>
+</head>
+<body class="img3" style="opacity: 95%;">
+    <div style="background: white;margin-top: 30px;margin-left: 350px;margin-right: 350px;margin-bottom: 60px;
+    padding: 40px 50px; box-shadow: 3px 5px 10px #c9d9ff;">
+         <h3> Booking Form </h3><br>
+         <form>
+             <div class="form-group">
+                 <label>Choose a chalet</label>
+                 <select class="form-control" id="room_type">
+                 <option value="0" selected>Select Chalet </option>
+                     {% for chalet in chalets %}
+                         <option value="1"> {{ chalet.name }} {{ chalet.city }} {{ chalet.price }}$</option>
+                     {% endfor %}
+                 </select>
+             </div>
+
+             <div class="form-group">
+                 <label>Number of room/suite</label>
+                 <select class="form-control" id="room_number">
+                     <option value="1"> 1 </option>
+                     <option value="2"> 2 </option>
+                     <option value="3"> 3 </option>
+                     <option value="4"> 4 </option>
+                 </select>
+             </div>
+             <div class="form-group">
+                 <label>Number of persons</label>
+                 <select class="form-control" id="person_number" >
+                     <option value="1"> 1 </option>
+                     <option value="2"> 2 </option>
+                     <option value="3"> 3 </option>
+                 </select>
+             </div>
+             <div class="form-group">
+                 <label>Number of children</label>
+                 <select class="form-control" id="child_number">
+                     <option value="0"> 0 </option>
+                     <option value="1"> 1 </option>
+                     <option value="2"> 2 </option>
+                     <option value="3"> 3 </option>
+                 </select>
+             </div>
+             <div class="form-group">
+             </div><br>
+
+         <input class="btn btn-primary" type="submit" value="Submit" >
+         </form>
+     </div>
+
+
+</body>
+</html>

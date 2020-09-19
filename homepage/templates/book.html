@@ -6,20 +6,8 @@
     <title>Booking</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static 'custom.css' %}" type="text/css">
+<img src="{% static 'chv.png' %}" width="160"  height="75" alt="" class="d-inline-block align-middle mr-2">
 
-    <script>
-        function finalCost(){
-            {% if chalets.name == 'Beit Theresa' %}
-                 var roomType = document.getElementById("room_type").value;
-                 var roomNum = document.getElementById("room_number").value;
-                 var personNum = document.getElementById("person_number").value;
-                 var childNum = document.getElementById("child_number").value;
-                 var resFacilities = document.getElementById("res_facilities").value;
-                 var total = (parseInt(roomType)*10) + ((roomNum)*2) + ((personNum)*3) + ((childNum)*2) + ((resFacilities)*5)
-            document.getElementById("result").innerHTML = total;
-            {% endif %}
-        }
-    </script>
 </head>
 <body class="img3" style="opacity: 95%;">
     <div style="background: white;margin-top: 30px;margin-left: 350px;margin-right: 350px;margin-bottom: 60px;

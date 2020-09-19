@@ -1,5 +1,7 @@
+from django.http import HttpResponse
 from django.shortcuts import render
-from .models import chalet
+
+from .models import chalet, contact
 
 
 def home(request):
@@ -8,7 +10,14 @@ def home(request):
 
 
 def contactUs(request):
-    return render(request, 'contactUs.html', {'title': 'contactUs'})
+    """ form = contactForm()
+    if request.method == 'POST':
+        form.save()
+        # send email code goes here
+        return HttpResponse('Thanks for contacting us!')
+    else:
+        form = contactForm()"""
+    return render(request, 'contactUs.html', {'form': 'form'})
 
 
 def bookNow(request):

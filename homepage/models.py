@@ -11,3 +11,15 @@ class chalet(models.Model):
 
     def __str__(self):
         return chalet.city
+
+
+class contact(models.Model):
+    firstname = models.CharField(max_length=50)
+    lastname = models.CharField(max_length=50)
+    email = models.CharField(max_length=100)
+    phone = models.CharField(max_length=14)
+    massage = models.TextField()
+
+    
+
+

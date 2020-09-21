@@ -20,6 +20,13 @@ class contact(models.Model):
     phone = models.CharField(max_length=14)
     massage = models.TextField()
 
+
+class bookNow(models.Model):
+    chalet_name = models.CharField(max_length=150)
+    number_of_room = models.IntegerField(default=2)
+    number_of_person = models.IntegerField(default=2)
+    number_of_children = models.IntegerField(default=2)
+
     
 
 

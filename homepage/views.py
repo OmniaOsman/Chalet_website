@@ -1,7 +1,6 @@
-from django.http import HttpResponse
-from django.shortcuts import render
-
-from .models import chalet, contact
+from django.contrib import messages
+from django.shortcuts import render, redirect
+from .models import chalet, contact, bookNow
 
 
 def home(request):

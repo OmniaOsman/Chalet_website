@@ -6,17 +6,18 @@
     <title>Booking</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static 'custom.css' %}" type="text/css">
-<img src="{% static 'chv.png' %}" width="160"  height="75" alt="" class="d-inline-block align-middle mr-2">
-
+    <img src="{% static 'chv.png' %}" width="160"  height="75" alt="" class="d-inline-block align-middle mr-2">
 </head>
+
 <body class="img3" style="opacity: 95%;">
     <div style="background: white;margin-top: 30px;margin-left: 350px;margin-right: 350px;margin-bottom: 60px;
     padding: 40px 50px; box-shadow: 3px 5px 10px #c9d9ff;">
          <h3> Booking Form </h3><br>
-         <form>
+         <form method="post" name="bookNow">
+            {% csrf_token %}
              <div class="form-group">
                  <label>Choose a chalet</label>
-                 <select class="form-control" id="room_type">
+                 <select class="form-control" id="room_type" name="chalet_name">
                  <option value="0" selected>Select Chalet </option>
                      {% for chalet in chalets %}
                          <option value="1"> {{ chalet.name }} {{ chalet.city }} {{ chalet.price }}$</option>
@@ -26,7 +27,7 @@
 
              <div class="form-group">
                  <label>Number of room/suite</label>
-                 <select class="form-control" id="room_number">
+                 <select class="form-control" id="room_number" name="number_of_room">
                      <option value="1"> 1 </option>
                      <option value="2"> 2 </option>
                      <option value="3"> 3 </option>
@@ -35,15 +36,16 @@
              </div>
              <div class="form-group">
                  <label>Number of persons</label>
-                 <select class="form-control" id="person_number" >
+                 <select class="form-control" id="person_number" name="number_of_person">
                      <option value="1"> 1 </option>
                      <option value="2"> 2 </option>
                      <option value="3"> 3 </option>
+                     <option value="4"> 4 </option>
                  </select>
              </div>
              <div class="form-group">
                  <label>Number of children</label>
-                 <select class="form-control" id="child_number">
+                 <select class="form-control" id="child_number" name="number_of_children">
                      <option value="0"> 0 </option>
                      <option value="1"> 1 </option>
                      <option value="2"> 2 </option>
@@ -55,7 +57,14 @@
 
          <input class="btn btn-primary" type="submit" value="Submit" >
          </form>
-     </div>
+    <div>
+          {%  for message in messages %}
+                  <h2 style="color: red; font-size: 15px">
+                  {{ message }}
+                      </h2>
+          {% endfor %}
+    </div>
+    </div>
 
 
 </body>

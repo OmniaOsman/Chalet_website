@@ -1,10 +1,10 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from .models import chalet, contact, bookNow
+from homepage.models import Chalet, Contact, BookNow
 
 
 def home(request):
-    chalets = chalet.objects.all()
+    chalets = Chalet.objects.all()
     return render(request, 'home.html', {'chalets': chalets})
 
 
@@ -20,5 +20,5 @@ def contactUs(request):
 
 
 def bookNow(request):
-    chalets = chalet.objects.all()
+    chalets = BookNow.objects.all()
     return render(request, 'book.html', {'chalets': chalets})

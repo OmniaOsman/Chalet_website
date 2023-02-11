@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'chalet.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'data',
+        'NAME': 'chalet',
         'USER': 'postgres',
-        'PASSWORD': '1234',
+        'PASSWORD': 'q!s3f@(U',
         'HOST': 'localhost',
         'PORT': '5432'
     }
@@ -124,7 +124,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    "C:\\Users\C.M\Desktop\chalets-env\chalet\static",
-]

@@ -1,179 +1,56 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'main.css' %}">
-    <title>Chalets</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-<body>
-<!-- bootstrap -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'main.css' %}">
+  <title>Chalets</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+{% endblock content %}  
 
 
-    <!-- navbar -->
-<!-- NAVBAR-->
-<nav class="navbar navbar-expand-lg py-3 s" style=" background: white">
-  <div class="container">
-    <a href="{{ '' }}" class="navbar-brand">
-      <!-- Logo Image -->
-      <img src="{% static 'chv.png' %}" width="160"  height="58" alt="" class="d-inline-block align-middle mr-2">
-    </a>
-
-    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
-
-    <div id="navbarSupportedContent" class="collapse navbar-collapse">
-      <ul class="navbar-nav ml-auto" >
-        <li class="nav-item active" ><a href="{{''}}" class="nav-link" style="color: black">Home <span class="sr-only">(current)</span></a></li>
-        <li class="nav-item"><a href="{{ 'contactUs/' }}" class="nav-link" style="color: black">Contact Us</a></li>
-          {% if user.is_authenticated %}
-              <li style="margin-right: 5px; margin-left: 15px; padding-top:9px; color: #00008b"> Welcome, {{ user.username }} </li>
-              <li class="nav-item"  ><a href="{{ 'accounts/logout' }}" class="nav-link" style="color: black">logout</a></li>
-          {% else %}
-            <li class="nav-item"><a href="{{ 'accounts/register' }}" class="nav-link" style="color: black">sign up</a></li>
-            <li class="nav-item" ><a href="{{ 'accounts/login' }}" class="nav-link" style="color: black">login</a></li>
-          {% endif %}
-      </ul>
-    </div>
+{% block content1 %}
+<!-- image of homepage -->
+<div class="img">
+  <div class="m">
+    <p style="color: white">Find Chalets with</p>
+    <p style="color: white">best price and excellent service</p>
   </div>
-</nav>
-
-
-    <!-- image of homepage -->
-    <div class="img">
-        <div class="m">
-        <p style="color: white">Find Chalets with</p>
-        <p style="color: white">best price and excellent service</p>
-            <div></div>
-        </div>
-    </div>
-
-
-
-<div>
-<!-- grid -->
-<div class="container" >
-  <div class="row" >
-    <div class="col-6" style="border: 6px solid white; width: 600px; height: 300px; background: #e5f3ff">
-      <div class="panel panel-yellow">
-       <div class="showCard">
-           <img src="{% static 'dahab.jpg' %}"width="200px" height="150px" style="position: relative;">
-           <p style="font-size: 20px;margin-bottom: 4px;"> Beit Theresa </p>
-           <p style="position: absolute; top: 15px;left: 220px "> <strong>Description:</strong>
-           <p style="position: absolute; top: 45px;left: 220px ">Beit Teresa is located in Dahab, 300 meters from Command and Dive Center - 500 meters from Eel Park - Entrance Point Entrance. There is Wi-Fi, bicycles, air conditioning,  and vacancies.
-            There is a private bathroom with a bidet and a hairdryer in each unit, along with additional toiletries.
-            Chalet facilities for barbecue.
-            </p>
-           <p style="font-size: 20px;margin-bottom: 5px;"> Dahab</p>
-           <a class="btn btn-primary" href="{{ 'book/' }}" role="button">Book Now</a>
-       </div>
-
-      </div>
-
-    </div>
-    <div class="col-6" style="border: 6px solid white; width: 600px; height: 300px; background: #e5f3ff">
-       <div class="panel panel-yellow">
-           <div class="showCard">
-           <img src="{% static 'h.jpg' %}" width="200px" height="150px" style="position: relative;">
-           <p style="font-size: 20px;margin-bottom: 4px;"> Shams Lodge </p>
-           <p style="position: absolute; top: 15px;left: 220px "> <strong>Description:</strong>
-           <p style="position: absolute; top: 45px;left: 220px ">
-            Located less than 1 km from Sentido Palm Royale Soma Bay, a restaurant, an outdoor swimming pool, a fitness center and a bar. The lodge offers both free Wi-Fi and private parking.
-            The accommodation features a terrace, air conditioning and a private bathroom with a bathtub.
-            Continental and American breakfast options are available every morning at Shams Lodge.
-            </p>
-           <p style="font-size: 20px;margin-bottom: 5px;"> Hurghada</p>
-           <a class="btn btn-primary" href="{{ 'book/' }}" role="button">Book Now</a>
-           <p style="font-size: 20px">  </p>
-           <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="margin-top: 25px;width: 450px;margin-left: 30px">
-                     Book Now
-              </button>
-       </div>
-       </div>
-    </div>
-  </div>
-  </div>
-
-    <div class="container" >
-  <div class="row" >
-    <div class="col-6" style="border: 6px solid white; width: 650px; height: 300px; background: #e5f3ff">
-      <div class="panel panel-yellow"></div>
-        <div class="showCard"> <img src="{% static 'sharm.jpg' %}" width="200px" height="150px" style="position: relative;">
-           <p style="font-size: 20px;margin-bottom: 4px;"> Porto Sharm </p>
-           <p style="position: absolute; top: 15px;left: 220px "> <strong>Description:</strong>
-           <p style="position: absolute; top: 45px;left: 220px ">Porto Sharm El Sheikh is a property with a garden and
-                a private beach area in Sharm El Sheikh, 9 km from SOHO Square Sharm El Sheikh, 39 km from Ras Mohammed Park, as well as 5 km from Nabq Bay. The property is 1.1 km from Nubian Beach and features a restaurant and free parking.
-                The chalet includes a bedroom, bathroom, seating area and kitchen with a fridge.
-            <p style="font-size: 20px;margin-bottom: 5px;"> Sharm El Sheikh </p>
-           <a class="btn btn-primary" href="{{ 'book/' }}" role="button">Book Now</a>
-       </div>
-    </div>
-    <div class="col-6" style="border: 6px solid white; width: 650px; height: 300px; background: #e5f3ff">
-       <div class="panel panel-yellow">
-           <div class="showCard"> <img src="{% static 'marsa.jpg' %}" width="200px" height="150px"style="position: relative;">
-           <p style="font-size: 20px;margin-bottom: 4px;"> Sea view </p>
-           <p style="position: absolute; top: 15px;left: 220px "> <strong>Description:</strong>
-           <p style="position: absolute; top: 40px;left: 220px "> Sea view chalet features air-conditioned accommodation with a balcony. Located on the beachfront, this property features a seasonal outdoor swimming pool and garden.
-            The chalet includes 2 bedrooms, a flat-screen TV, an equipped kitchen with a fridge, oven, washing machine, and 2 bathrooms with a shower.
-            Guests at Sea view chalet can enjoy squash on site or cycling in the surroundings.
-            <p style="font-size: 20px;margin-bottom: 5px;"> Marsa Matrouh </p>
-           <a class="btn btn-primary" href="{{ 'book/' }}" role="button">Book Now</a>
-
-       </div></div>
-    </div>
-  </div>
-  </div>
-
-    <div class="container" >
-  <div class="row" >
-    <div class="col-6" style="border: 6px solid white; width: 650px; height: 300px; background: #e5f3ff">
-      <div class="panel panel-yellow">
-          <div class="showCard"> <img src="{% static 'ains.jpg' %}" width="200px" height="150px" style="position: relative;">
-           <p style="font-size: 20px;margin-bottom: 4px;"> Malibu Elsokhna </p>
-           <p style="position: absolute; top: 15px;left: 220px "> <strong>Description:</strong>
-           <p style="position: absolute; top: 40px;left: 220px ">
-            provides air-conditioned accommodation with a terrace.
-            Located on the beachfront, this property features an outdoor swimming pool, shared lounge and garden.
-            The chalet includes 1 bedroom, 1 bathroom, a flat-screen TV, a dining area, a fully equipped kitchen and a balcony with a lake view.
-            Speak Arabic and English at the reception, and the staff are always available to help.
-            At the chalet.
-            <p style="font-size: 20px;margin-bottom: 5px;"> Ain Sokhna </p>
-           <a class="btn btn-primary" href="{{ 'book/' }}" role="button">Book Now</a>
-
-
-       </div></div>
-    </div>
-
-    <div class="col-6" style="border: 6px solid white; width: 650px; height: 300px; background: #e5f3ff">
-       <div class="panel panel-yellow">
-           <div class="showCard"> <img src="{% static 'rassedr.jpg' %}" width="200px" height="150px"style="position: relative;">
-           <p style="font-size: 20px;margin-bottom: 4px;"> La Hacienda </p>
-           <p style="position: absolute; top: 15px;left: 220px "> <strong>Description:</strong>
-           <p style="position: absolute; top: 40px;left: 220px ">
-            Luxury Chalet - La Hacienda in Ras Sedr, lounge and private beach beach. This property is at the seaside.
-            This chalet has 2 bedrooms, a flat-screen kitchen, an apartment with a seating area, and 2 bathrooms with a shower.
-            At the chalet, guests can enjoy a continental or buffet breakfast.
-            La Hacienda offers a children's playground. Fishing is possible in the area. The property has water sports facilities.
-            <p style="font-size: 20px;margin-bottom: 5px;"> Ras Sedr </p>
-           <a class="btn btn-primary" href="{{ 'book/' }}" role="button">Book Now</a>
-
-       </div></div>
-    </div>
-  </div>
-  </div>
-    </div>
-
-<!--
-{% for c in chalets %}
-<div style="margin-left: 110px">
-    <img src=" {{ c.image}} " width="200px" height="150px" style="position: relative; ">
-    <p> {{ c.name}} </p>
 </div>
-{% endfor %}
--->
 
-</body>
-</html>
+
+<!-- grid -->  
+<section id="gallery">
+  <div class="container">
+    <div class="row">
+
+      {% for chalet in chalets %}
+        <div class="col-lg-4 mb-4">
+          <div class="card">
+            <img src={{ chalet.image }} alt="" class="card-img-top">
+              <div class="card-body">
+                <h4 class="card-title">{{ chalet.name }}</h4>
+                <h6> {{ chalet.price }} LE </h6>
+                <p class="card-text">{{ chalet.description | slice:":75" }} ... </p>
+                <a href="{{ 'book/' }}" class="btn btn-outline-success btn-sm">Book Now</a>
+              </div>
+         </div>
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+
+<!-- footer -->
+<footer class="bg-light text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: #5e9eff;">
+    © 2020 Copyright:
+    <a class="text-dark" href="#">Chalet.com</a>
+  </div>
+  <!-- Copyright -->
+</footer> 
+
+{% endblock content1 %}

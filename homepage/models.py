@@ -11,7 +11,8 @@ class Chalet(models.Model):
     image       = models.ImageField()
 
     def __str__(self):
-        return Chalet.name
+        return self.name
+    
 
 
 class Contact(models.Model):
@@ -22,7 +23,7 @@ class Contact(models.Model):
     massage   = models.TextField()
     
     def __str__(self):
-        return Contact.firstname
+        return self.firstname
 
 
 class BookNow(models.Model):
@@ -32,4 +33,4 @@ class BookNow(models.Model):
     No_of_days       = models.IntegerField()
     
     def __str__(self):
-        return BookNow.chalet_name
+        return self.chalet_name

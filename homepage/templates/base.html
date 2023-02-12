@@ -1,0 +1,41 @@
+{% load static %}
+<html>
+    <!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+
+    {% block content %}
+
+    {% endblock content %}
+    </head>
+
+    <body> 
+        <nav class="navbar navbar-expand-lg py-3 s" style=" background: white">
+        <div class="container">
+            <a href="{{ '' }}" class="navbar-brand">
+            <!-- Logo Image -->
+            <img src="{% static 'chv.png' %}" width="160"  height="58" alt="" class="d-inline-block align-middle mr-2">
+            </a>
+
+            <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+
+            <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto" >
+                <li class="nav-item active" ><a href="{{''}}" class="nav-link" style="color: black">Home <span class="sr-only">(current)</span></a></li>
+                <li class="nav-item"><a href="{{ 'contactUs/' }}" class="nav-link" style="color: black">Contact Us</a></li>
+                {% if user.is_authenticated %}
+                    <li style="margin-right: 5px; margin-left: 15px; padding-top:9px; color: #00008b"> Welcome, {{ user.username }} </li>
+                    <li class="nav-item"  ><a href="{{ 'accounts/logout' }}" class="nav-link" style="color: black">logout</a></li>
+                {% else %}
+                    <li class="nav-item"><a href="{{ 'accounts/register' }}" class="nav-link" style="color: black">sign up</a></li>
+                    <li class="nav-item" ><a href="{{ 'accounts/login' }}" class="nav-link" style="color: black">login</a></li>
+                {% endif %}
+            </ul>
+            </div>
+        </div>
+        </nav>
+        {% block content1 %}
+
+        {% endblock content1 %}
+    </body>    
+</html>

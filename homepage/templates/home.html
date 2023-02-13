@@ -8,6 +8,12 @@
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 {% endblock content %}  
 
+{% block home %} href="{{''}}" {% endblock home %}
+{% block contact %} href="{{ 'contactUs/' }}" {% endblock contact %}
+{% block w %} {{ user.username }} {% endblock w %} 
+{% block logout %} href="{{ 'accounts/logout' }}" {% endblock logout %}
+{% block signup %} href="{{ 'accounts/register' }}" {% endblock signup %} 
+{% block login %} href="{{ 'accounts/login' }}" {% endblock login %}
 
 {% block content1 %}
 <!-- image of homepage -->

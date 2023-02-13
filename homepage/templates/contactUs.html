@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {% load static %}
 {% block content %}
     <link rel="stylesheet" href="{% static 'contact_css.css' %}">
@@ -7,62 +8,74 @@
     <link rel="stylesheet" href="assets/css/style.css">
 {% endblock content %}
 
-{% block class %}
+{% block body1 %}
     <body class="img2">
-        {% block content1 %}
-            <!-- contact panel -->
-            <div class="container">
-                <div class="row">
+{% endblock body1 %}    
 
-                    <div class="card d-flex justify-content-center mx-auto my-5 p-5">
-                        <h3 style='color: #028282'>Do you have a question?<br>
-                        Contact Us</h3>
-                        <div class="form-row">
-                            <div class="form-group col-md-6 first">
-                                <label for="inputFirstName">firstname <span>*</span></label> 
-                                <input type="text" class="form-control" id="inputFirstName" name="firstname" required>
-                                <div id="fname_error" class="val_error"></div>
-                            </div>
+{% block home %} href="{{ '../' }}" {% endblock home %}
+{% block contact %}href="{{''}}"{% endblock contact %}
+{% block w %} {{ user.username }} {% endblock w %} 
+{% block logout %} href="{{ '../accounts/logout' }}" {% endblock logout %}
+{% block signup %} href="{{ '../accounts/register' }}" {% endblock signup %} 
+{% block login %} href="{{ '../accounts/login' }}" {% endblock login %} 
 
-                            <div class="form-group col-md-6 first">
-                                <label for="inputLastName">lastname<span>*</span></label> 
-                                <input type="text" class="form-control" id="inputLastName" name="lastname">
-                                <div id="lname_error" class="val_error"></div>
-                            </div>
-                        </div>
+    
+{% block content1 %}
+    <!-- contact panel -->
+    <div class="container">
+        <div class="row">
 
-                        <div class="form-row">
-                            <div class="form-group col-md-6"> 
-                                <label for="inputEmail">email <span>*</span></label> 
-                                <input type="email" class="form-control" id="inputEmail" name="youremail">
-                                <div id="email_error" class="val_error"></div>
-                            </div>
+            <div class="card d-flex justify-content-center mx-auto my-5 p-5">
+                <h3 style='color: #028282'>Do you have a question?<br>
+                    Contact Us</h3>
+                <div class="form-row">
+                    <div class="form-group col-md-6 first">
+                        <label for="inputFirstName">firstname <span>*</span></label> 
+                            <input type="text" class="form-control" id="inputFirstName" name="firstname" required>
+                            <div id="fname_error" class="val_error"></div>
+                    </div>
 
-                            <div class="form-group col-md-6"> 
-                                <label for="inputPhone">phone <span>*</span></label> 
-                                <input type="text" class="form-control" id="inputPhone" name="yourphone">
-                                <div id="phone_error" class="val_error"></div>
-                            </div>
-                        </div>
-
-                        <div class="form-group mt-0"> 
-                            <label for="exampleFormControlTextarea1">message <span>*</span></label> 
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="your message"></textarea>
-                            <div id="message_error" class="val_error"></div>
-                            <div class="form-button pt-4"> 
-                                <input type="submit" class="btn btn-primary btn-block btn-lg" value="send message" name="send message">
-                                <span style="color: white"; >SEND MESSAGE</span></input> 
-                            </div>
-                        </div>
-
-                        <div class="dropdown-divider"></div>
-                            <h3 class='contact'> Contact Information </h3>
-                            <p class='contact1'> Egypt</p>
-                            <p class='contact1'> +02 1111 2222</p>
-                            <p class='contact1'> chalet@gmail.com</p>
+                    <div class="form-group col-md-6 first">
+                        <label for="inputLastName">lastname<span>*</span></label> 
+                        <input type="text" class="form-control" id="inputLastName" name="lastname">
+                        <div id="lname_error" class="val_error"></div>
                     </div>
                 </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6"> 
+                        <label for="inputEmail">email <span>*</span></label> 
+                        <input type="email" class="form-control" id="inputEmail" name="youremail">
+                        <div id="email_error" class="val_error"></div>
+                    </div>
+
+                    <div class="form-group col-md-6"> 
+                        <label for="inputPhone">phone <span>*</span></label> 
+                        <input type="text" class="form-control" id="inputPhone" name="yourphone">
+                        <div id="phone_error" class="val_error"></div>
+                    </div>
+                </div>
+
+                <div class="form-group mt-0"> 
+                    <label for="exampleFormControlTextarea1">message <span>*</span></label> 
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="your message"></textarea>
+                    <div id="message_error" class="val_error"></div>
+                        <div class="form-button pt-4"> 
+                            <input type="submit" class="btn btn-primary btn-block btn-lg" value="send message" name="send message">
+                            <span style="color: white"; >SEND MESSAGE</span></input> 
+                    </div>
+                </div>
+
+                <div class="dropdown-divider"></div>
+                    <h3 class='contact'> Contact Information </h3>
+                    <p class='contact1'> Egypt</p>
+                    <p class='contact1'> +02 1111 2222</p>
+                    <p class='contact1'> chalet@gmail.com</p>
             </div>
-        {% endblock content1 %}
+        </div>
+    </div>
+{% endblock content1 %}
+        
+{% block body2 %} 
     </body>
-{% endblock class %}
+{% endblock body2 %}

@@ -1,16 +1,33 @@
 {% extends 'base.html' %}
 {% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Booking</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{% static 'custom.css' %}" type="text/css">
-    <img src="{% static 'chv.png' %}" width="160"  height="75" alt="" class="d-inline-block align-middle mr-2">
-</head>
 
-<body class="img3" style="opacity: 95%;">
-    <div style="background: white;margin-top: 30px;margin-left: 350px;margin-right: 350px;margin-bottom: 60px;
+{% block content %} 
+    <title>Booking</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+{% endblock content %}
+
+
+{% block home %} href="{{ '../' }}" {% endblock home %}
+{% block contact %} href="{{ '../contactUs/' }}" {% endblock contact %}
+{% block w %} {{ user.username }} {% endblock w %} 
+{% block logout %} href="{{ '../accounts/logout' }}" {% endblock logout %}
+{% block signup %} href="{{ '../accounts/register' }}" {% endblock signup %} 
+{% block login %} href="{{ '../accounts/login' }}" {% endblock login %}
+
+
+{% block content1 %}
+<div class="container">
+    <div class="card-group vgr-cards">
+      <div class="card">
+        <div class="card-img-body">
+        <img class="card-img" src="https://picsum.photos/500/230" alt="Card image cap">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">Beit Theresa</h4>
+          <p class="card-text">{{chalet.description}}</p>
+            <div style="background: white;margin-top: 30px;margin-left: 350px;margin-right: 350px;margin-bottom: 60px;
     padding: 40px 50px; box-shadow: 3px 5px 10px #c9d9ff;">
          <h3> Booking Form </h3><br>
          <form method="post" name="bookNow">
@@ -65,7 +82,8 @@
           {% endfor %}
     </div>
     </div>
+        </div>
+      </div>
+  </div>
 
-
-</body>
-</html>
+{% endblock content1 %}

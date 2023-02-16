@@ -1,9 +1,6 @@
-""" from .models import contact
-
 from django import forms
 
-
-class contactForm(forms.ModelForm):
-    class Meta:
-        model = contact
-        fields = ['firstname', 'lastname', 'email', 'phone', 'massage'] """
+class ContactForm(forms.Form):
+    from_email = forms.EmailField(required=True)
+    subject = forms.CharField(required=True)
+    message = forms.CharField(widget=forms.Textarea, required=True)

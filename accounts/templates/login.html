@@ -38,7 +38,7 @@
                 </div>
                 
                 <!-- sign in btn -->
-                <button class="btn btn-lg btn-primary btn-block" type="submit">sign in</button>
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">sign in</button>
 
                 <div style="font-size: 20px">
                   <a class="d-block text-center mt-2 small" href="{{ 'register' }}">sign up</a>
@@ -47,9 +47,7 @@
 
               <div>
                 {%  for message in messages %}
-                  <h2 style="color: red; font-size: 15px">
-                    {{ message }}
-                  </h2>
+                  <h2 style="color: red; font-size: 15px"> {{ message }} </h2>
                 {% endfor %}
               </div>
             </div>

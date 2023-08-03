@@ -1,69 +1,32 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'account_css.css' %}">
-    <title>sign up</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-<!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
+{% extends 'index.html' %}
 
-  <body style="background: linear-gradient(to left, white, skyblue);">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-10 col-xl-9 mx-auto">
-          <div class="card card-signin flex-row my-5">
+<!-- Title of the page -->
+{% block title %} sign up {% endblock title %}
 
-            <div class="card-img-left d-none d-md-flex">
-              <!-- Background image for card set in CSS! -->
-            </div>
+<!-- Section in body -->
+{% block section %}
+		<section class="ftco-section">
+			<div class="container">
+				<div class="row justify-content-center">
+					<h2 class="heading-section">Sign up</h2>
+				</div>	
 
-            <div class="card-body">
-              <h5 class="card-title text-center">Register</h5>
-              <form class="form-signin" action="register" method="POST">
-                {% csrf_token %}
-
-                <!-- username label -->
-                <div class="form-label-group">
-                  <input type="text" id="inputUserame" name="username" class="form-control" 
-                    placeholder="Username" required autofocus>
-                  <label for="inputUserame">Username</label>
-                </div>
-
-                <!-- email label -->
-                <div class="form-label-group">
-                  <input type="email" id="inputEmail" name="email" class="form-control" 
-                    placeholder="Email address" required>
-                  <label for="inputEmail">Email address</label>
-                </div>
-
-                <!-- password label -->
-                <div class="form-label-group">
-                  <input type="password" id="inputPassword" name="psw" class="form-control" 
-                    placeholder="Password" required>
-                  <label for="inputPassword">Password</label>
-                </div>
-
-                <!-- confirm password label -->
-                <div class="form-label-group">
-                  <input type="password" id="inputConfirmPassword" class="form-control" name="psw_repeat" placeholder="Password" required>
-                  <label for="inputConfirmPassword">Confirm password</label>
-                </div>
-
-                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">sign up</button>
-                <a class="d-block text-center mt-2 small" href="{{ 'login' }}">sign in</a>
-              </form>
-
-              <div>
-                {%  for message in messages %}
-                  <h2 style="color: red; font-size: 15px"> {{ message }} </h2>
-                {% endfor %}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+				<div class="row justify-content-center">
+					<div class="col-md-6 col-lg-4">
+						<div class="login-wrap p-0">
+							<form action="{% url 'signup' %}" class="signin-form" method='POST'>
+								{% csrf_token %} 
+								{{form}}
+								<button type="submit" class="form-control btn btn-primary submit px-3">Sign Up</button>
+							    <p class="w-100 text-center">&mdash; Or Sign Up With &mdash;</p>
+							    <div class="social d-flex text-center">
+									<a href="{% url 'social:begin' 'google-oauth2' %}" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Google</a>
+									<a href="{% url 'social:begin' 'facebook' %}" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Facebook</a>
+					            </div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		{% endblock section %}

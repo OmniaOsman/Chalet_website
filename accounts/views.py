@@ -1,46 +1,52 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import auth, User
-from django.contrib.auth import login as auth_login
 from django.contrib import messages
+from django.contrib.auth.models import auth
+from django.contrib.auth import authenticate, login, views
+from django.urls import reverse_lazy
+from django.views import generic
+from .models import User
+from .forms import SignUpForm, LoginForm
 
 
-def register(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        email = request.POST['email']
-        psw = request.POST['psw']
-        psw_repeat = request.POST['psw_repeat']
-        if psw == psw_repeat:
-            if User.objects.filter(username=username).exists():
-                messages.info(request, 'Username is already taken')
-                return redirect('register')
-            else:
-                user = User.objects.create_user(username=username, password=psw, email=email)
-                user.save()
-                print("User created!")
-            return redirect('/')
-        else:
-            messages.info(request, 'password not matching !')
-            return redirect('register')
-    else:
-        return render(request, 'signup.html')
+
+class SignUpView(generic.CreateView):
+    form_class    = SignUpForm
+    template_name = 'signup.html' 
+    
+    def form_valid(self, form):
+        # get data from form
+        email     = form.cleaned_data['email']
+        password1 = form.cleaned_data['password1']
+        password2 = form.cleaned_data['password2']
+        # save user in database with hash password
+        user      = User(email=email, password=password1)
+        user.set_password(password1)
+        user      = user.save()
+        # authenticate, login, and redirect to home
+        user      = authenticate(email=email, password=password1)
+        login(self.request, user)
+        return redirect('home')
 
 
-def login(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = auth.authenticate(username=username, password=password)
+
+class LoginView(generic.FormView):
+    template_name = 'login.html'
+    form_class    =  LoginForm 
+
+    def form_valid(self, form):
+        # get data from for and authenticate
+        email    = form.cleaned_data['email']
+        password = form.cleaned_data['password']
+        user     = authenticate(email=email, password=password)
+        
         if user is not None:
-            auth.login(request, user)
-            return redirect('/')
+            login(self.request, user)
+            return redirect('home')
         else:
-            messages.info(request, 'invalid username or password')
+            messages.info(self.request, 'invalid username or password')
             return redirect('login')
-    else:
-        return render(request, 'login.html', {'title': 'login'})
 
 
-def logout(request):
-    auth.logout(request)
-    return redirect('/')
+
+class LogoutView(views.LogoutView):
+    next_page = '/'

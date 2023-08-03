@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from environs import Env
+env = Env()
+env.read_env()
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,18 +24,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'cq24co)c+=6bo60twl-khp+r0ebn_sq9qx+0d54^aeby*5)-_$'
-DEFAULT_FROM_EMAIL = "omniaosman4@gmail.com"
+SECRET_KEY = env.str('SECRET_KEY')
+
+
+# Email Settings
+DEFAULT_FROM_EMAIL = env.str('DEFAULT_FROM_EMAIL')
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['chalets.com']
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,8 +45,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # apps
     'homepage.apps.HomepageConfig',
     'accounts.apps.AccountsConfig',
+    
+    # third-party
+    'social_django',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -79,12 +91,12 @@ WSGI_APPLICATION = 'chalet.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'chalet',
-        'USER': 'postgres',
-        'PASSWORD': 'q!s3f@(U',
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'ENGINE'  : 'django.db.backends.postgresql',
+        'NAME'    :  env.str('NAME'),
+        'USER'    : 'postgres',
+        'PASSWORD':  env.str('PASSWORD'),
+        'HOST'    : 'localhost',
+        'PORT'    : '5432'
     }
 }
 
@@ -108,6 +120,27 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# Authentication
+AUTH_USER_MODEL = 'accounts.User'
+AUTHENTICATION_BACKENDS = [
+    'accounts.backends.EmailBackend', 
+    'social_core.backends.facebook.FacebookOAuth2', 
+    'social_core.backends.google.GoogleOAuth2',
+]
+
+# Facebok
+SOCIAL_AUTH_FACEBOOK_KEY = env.str('SOCIAL_AUTH_FACEBOOK_KEY') # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = env.str('SOCIAL_AUTH_FACEBOOK_SECRET') # Facebook App Secret
+
+# Google
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = env.str('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY') # Google Client ID
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = env.str('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET') # Google Client Secret
+
+LOGIN_REDIRECT_URL = 'home'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -129,5 +162,5 @@ STATIC_URL = '/static/'
  
 
 # Media
-MEDIA = '/media'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")

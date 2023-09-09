@@ -1,89 +1,39 @@
 {% extends 'base.html' %}
-{% load static %}
 
+{% block nav %}
+    <li class="nav-item"><a class="nav-link" href="{% url 'home:home' %}">Home</a></li> 
+    <li class="nav-item"><a class="nav-link" href="{% url 'home:aboutus' %}">About us</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'home:accomodation' %}">Accomodation</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'home:contact' %}">Contact</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'accounts:login' %}">Login</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'accounts:signup' %}"> Signup</a></li>
+{% endblock nav %}
 
-{% block content %} 
-    <title>Booking</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-{% endblock content %}
-
-
-{% block home %} href="{{ '../' }}" {% endblock home %}
-{% block contact %} href="{{ '../contactUs/' }}" {% endblock contact %}
-{% block w %} {{ user.username }} {% endblock w %} 
-{% block logout %} href="{{ '../accounts/logout' }}" {% endblock logout %}
-{% block signup %} href="{{ '../accounts/register' }}" {% endblock signup %} 
-{% block login %} href="{{ '../accounts/login' }}" {% endblock login %}
-
-
-{% block content1 %}
-<div class="container">
-    <div class="card-group vgr-cards">
-      <div class="card">
-        <div class="card-img-body">
-        <img class="card-img" src="https://picsum.photos/500/230" alt="Card image cap">
+{% block body %}
+<section class="gallery_area section_gap">
+    <div class='container'>
+        <div class="col-md-9">
+            <form class="row contact_form" method="post" id="contactForm" novalidate="novalidate">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter Subject">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <textarea class="form-control" name="message" id="message" rows="1" placeholder="Enter Message"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-12 text-right">
+                </div>
+            </form>
         </div>
-        <div class="card-body">
-          <h4 class="card-title">Beit Theresa</h4>
-          <p class="card-text">{{chalet.description}}</p>
-            <div style="background: white;margin-top: 30px;margin-left: 350px;margin-right: 350px;margin-bottom: 60px;
-    padding: 40px 50px; box-shadow: 3px 5px 10px #c9d9ff;">
-         <h3> Booking Form </h3><br>
-         <form method="post" name="bookNow">
-            {% csrf_token %}
-             <div class="form-group">
-                 <label>Choose a chalet</label>
-                 <select class="form-control" id="room_type" name="chalet_name">
-                 <option value="0" selected>Select Chalet </option>
-                     {% for chalet in chalets %}
-                         <option value="1"> {{ chalet.name }} {{ chalet.city }} {{ chalet.price }}$</option>
-                     {% endfor %}
-                 </select>
-             </div>
-
-             <div class="form-group">
-                 <label>Number of room/suite</label>
-                 <select class="form-control" id="room_number" name="number_of_room">
-                     <option value="1"> 1 </option>
-                     <option value="2"> 2 </option>
-                     <option value="3"> 3 </option>
-                     <option value="4"> 4 </option>
-                 </select>
-             </div>
-             <div class="form-group">
-                 <label>Number of persons</label>
-                 <select class="form-control" id="person_number" name="number_of_person">
-                     <option value="1"> 1 </option>
-                     <option value="2"> 2 </option>
-                     <option value="3"> 3 </option>
-                     <option value="4"> 4 </option>
-                 </select>
-             </div>
-             <div class="form-group">
-                 <label>Number of children</label>
-                 <select class="form-control" id="child_number" name="number_of_children">
-                     <option value="0"> 0 </option>
-                     <option value="1"> 1 </option>
-                     <option value="2"> 2 </option>
-                     <option value="3"> 3 </option>
-                 </select>
-             </div>
-             <div class="form-group">
-             </div><br>
-
-         <input class="btn btn-primary" type="submit" value="Submit" >
-         </form>
-    <div>
-          {%  for message in messages %}
-                  <h2 style="color: red; font-size: 15px">
-                  {{ message }}
-                      </h2>
-          {% endfor %}
     </div>
-    </div>
-        </div>
-      </div>
-  </div>
-
-{% endblock content1 %}
+</section>
+{% endblock body %}
